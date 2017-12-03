@@ -13,13 +13,10 @@
 
 # PersonalHistory
 <details> 
-  <summary>株式会社マネーフォワード入社 </summary>
-
-```
-hoge  
-fuga  
-piyo  
-```
+  <summary>[株式会社マネーフォワード入社](https://corp.moneyforward.com/aboutus/outline/) </summary>
+- hoge
+- fuga
+- piyo
 </details>
 
 
