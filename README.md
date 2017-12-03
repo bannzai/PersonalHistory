@@ -22,11 +22,9 @@
   <summary>
     ゲームアプリ開発 (2012/07 〜 2012/12)
   </summary>
-  <details>
-  <summary>
-    概要
-  </summary>
   <div>
+
+## 概要
 
   - 初めてのプログラマーとしてのお仕事
     * その直前はお惣菜屋さんの副店長
@@ -36,35 +34,22 @@
     * 冒頭が面白かったが、あとはほとんど理解できてない
   - 作ったものとしては黒ひげ危機一髪のカジュアルゲームと一つ実装はしたが企画が潰れてしまったもの
 
-  </div>
-  </details>
-  <details>
-  <summary>
-  開発について
-  </summary>
-  <div>
+## 開発について
 
 - cocos2d-xを使ったクロスプラットフォームのゲーム開発
   - iOS
   - Android
-### 使った言語
+
+## 使った言語
 - C++
 - Java
 - Objective-C
 
-### ツール
+## ツール
 - Xcode
 - Eclipse
 
-  </div>
-  </details>
-  <details>
-  <summary>
-  工夫していた点・悩んだ点
-  </summary>
-  <div>
-
-### 工夫していた点
+## 工夫していた点
 - C++の本を読んでもイマイチパッとしないことがわかったのでとりあえず手を動かして覚えることにした。
   * というかそういう学び方しかできないことを悟った
   * 早めに自分の頭脳に見切りをつけてこの習慣をつけたのは良かったと思ってる
@@ -73,7 +58,7 @@
 - いくつか存在していたプロジェクトがあったのであったコードを全部読んで動かして、ゲームの概要を理解して自分の引き出しへと入れた
 - 先輩にペアプロをすきあらばお願いして、デバッグの仕方やコードの書き方・考え方を学んだ
 
-### 悩んだ点
+## 悩んだ点
 - Xcode・Eclipse・iOS・Android・cocos2d-x・C++・Objective-C・Java
 - 試用期間無事に終わるかな。。。
 - 悩んだところというか、わからないことが多すぎて、毎日**しゅ、しゅごい**となっていた
@@ -82,17 +67,13 @@
 
   </div>
   </details>
-  </details>
   <details>
   <summary>
     ZOZOTOWN ECサイト開発 (2013/01 〜 2013/12)
   </summary>
-  <details>
-  <summary>
-    概要
-  </summary>
   <div>
 
+## 概要
   - Windows server 
   - 注文システムの大きな仕様変更を体験
     * DBの設計
@@ -103,43 +84,27 @@
     * DBがどこまでのことができるかっていうことを深く知れた(気がしている)
   - フロントエンド << バックエンド
 
-  </div>
-  </details>
-  <details>
-  <summary>
-  開発について
-  </summary>
-  <div>
-
-### 使った言語
+## 使った言語
 - VBS
 - Javascript
 - HTML/CSS
 - (MS)SQL
 
-### ツール
+## ツール
 - 秀丸
 - SQL Management Server
 - VSS
 - IIS
 - Git
 
-  </div>
-  </details>
-  <details>
-  <summary>
-  工夫していた点・悩んだ点
-  </summary>
-  <div>
-
-### 工夫していた点
+## 工夫していた点
   - 注文システムの大きな仕様変更を体験
     * `DB` の追加やカラムの追加において論理的な意味を持つかどうかを考え抜いた
   - チューニングを専属的にやっていた時
     * SQL management studioについてわからない機能があれば片っ端から調べてみた
       * sys.xxというスキームを発見し、DBの足りないインデックスを監視する目的等で大いに役立つことを発見
 
-### 悩んだ点
+## 悩んだ点
 - `DB` のスキームを考えた時に初めて真剣に「名前何にしよう」と悩んだ
   * ソースコードの変数名とかだとある程度コンテキストもあるし少しいい加減になっていた(今思うとこれはダメですね)が、利用頻度の高い誰からいつでも見られる`DB` の場合名前が大事だなということはわかっていたので悩んだ
   * 同時期に同僚があくまで社内向けにリーダブルコードを布教してきて、「あ、名前大事。」と学んだ
@@ -148,35 +113,24 @@
 
   </div>
   </details>
-  </details>
   <details>
   <summary>
     WEAR iOSアプリ開発 (2014/12 〜 2015/10)
   </summary>
-  <details>
-  <summary>
-    概要
-  </summary>
   <div>
+
+## 概要
 
   - iOSアプリ開発
   - リリース後1ヶ月後くらいに参加
   - 半年くらいiOSアプリのリードエンジニア経験
 
-  </div>
-  </details>
-  <details>
-  <summary>
-  開発について
-  </summary>
-  <div>
-
-### 使った言語
+## 使った言語
 - Swift 1.0
 - Objective-C
 - Apple Script
 
-### ツール
+## ツール
 - Git
 - mitmproxy
 - Vim
@@ -187,21 +141,13 @@
 - Slack
 - Photoshop(画像のマージンを測るのにデザイナーと一緒なツールを使っていた)
 
-  </div>
-  </details>
-  <details>
-  <summary>
-  工夫していた点・悩んだ点
-  </summary>
-  <div>
-
-### 工夫していた点
+## 工夫していた点
 - ネストは浅く
 - 一つのメソッドには一つの意味だけ書くようにする
 - `View` の共通化できるようにする
 - ローカライズや、@2x, @3x の画像の生成は自動化する
 
-### 悩んだ点
+## 悩んだ点
 - 設計
   * リーダブルにするには
   * DRYを意識したいが、どういうクラスを作るか
@@ -213,7 +159,6 @@
 - `UI` についてこだわりが強かったので、どう実現していくか悩んだ
 
   </div>
-  </details>
   </details>
   </div>
 </details>
@@ -228,18 +173,13 @@
   <a href="https://itunes.apple.com/us/app/apple-store/id1062808085?mt=8"> MFクラウド経費</a>iOSアプリ開発を担当  (2015/12 〜 2016/3)
   </summary>
   <div>
-  <details>
-  <summary>
-  開発について
-  </summary>
-  <div>
 
-### iOS  
+## iOS  
 - Swift   
 - Xcode  
 - Cocoapods  
 - Carthage  
-### チーム共通  
+## チーム共通  
 - Git  
 - GitHub  
 - コードレビュー  
@@ -247,20 +187,14 @@
 - Sketch  
 - trello
 - Google Calendar
-### ライブラリ  
+## ライブラリ  
 - Realm  
 - R.swift  
 - SwiftBond  
 - SwiftTask  
 - SwiftDate
 
-  </div>
-  <details>
-
-  <summary>
-  概要
-  </summary>
-  <div>
+## 概要
 
 - マネーフォワードに入社してから初めて入ったチーム
 - 本当は家計簿のサービスをやる気満々で入ったのに希望が通らなくてちょっと残念だなとは思ってた
@@ -268,18 +202,7 @@
 - Sketch・Zeplinを使うのも初めて。しゅしゅごい、と思った
 - チームにjoinした時にはまだサービスが立ち上がっておらず、申請目標の3週間前くらいにチームに加わった
 
-  </div>
-  </details>
-  </div>
-  </details>
-  </details>
-  <details>
-  <summary>
-  工夫していた点・悩んだ点
-  </summary>
-  <div>
-
-### 工夫していた点
+## 工夫していた点
 - 申請直前だった時はサービスの理解も早くする必要があったが、どちらかというと細かいコーディングのミスを拾うことに注力した
   - 勢いで書いたコードも存在していたので、共通化だったり、リファクタリング
   - super.viewDidLoad等の予備忘れ
@@ -292,7 +215,7 @@
   * が、まずは品質の保証も大事だと思い、テストを書いて効果がありそうな場所を書くことに決めました
   * その時に勢いで買った本 [レガシーコード改善ガイド](https://www.amazon.co.jp/s/?ie=UTF8&keywords=%E3%83%AC%E3%82%AC%E3%82%B7%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E6%94%B9%E5%96%84&tag=googhydr-22&index=aps&jp-ad-ap=0&hvadid=217432896196&hvpos=1t1&hvnetw=g&hvrand=8543339438788022144&hvpone=&hvptwo=&hvqmt=b&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1028853&hvtargid=kwd-29907084729&ref=pd_sl_1np2uq4wvb_b)
 
-### 悩んだ点
+## 悩んだ点
 - コードレビューの目的を何に置くべきなのか、ということで今もだが悩み続けている
  * 品質保証？可読性？仕様確認？
 - コードが煩雑になっていたので品質を保つために何からすべきかを悩んだ
@@ -302,10 +225,6 @@
 
   </div>
   </details>
-  </div>
-  </details>
-
-- 
   </div>
 </details>
 
