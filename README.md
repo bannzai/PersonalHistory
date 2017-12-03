@@ -12,3 +12,15 @@
 |Facebook|[yudai.owata.hirose](https://www.facebook.com/yudai.owata.hirose)
 
 # PersonalHistory
+<details> 
+  <summary>株式会社マネーフォワード入社 </summary>
+
+```
+hoge  
+fuga  
+piyo  
+```
+</details>
+
+
+
