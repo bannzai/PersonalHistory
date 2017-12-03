@@ -18,13 +18,43 @@
   </summary>
   <div>
   <details>
-    <summary>
-      [MFクラウド経費](https://itunes.apple.com/us/app/apple-store/id1062808085?mt=8)のiOSアプリ開発を担当 
-    </summary>
+  <summary>
+  <a href="https://itunes.apple.com/us/app/apple-store/id1062808085?mt=8"> MFクラウド経費]</a>iOSアプリ開発を担当  (2015/12 〜 2016/3)
+  </summary>
+  <div>
+  <details>
+  <summary>
+  開発について
+  </summary>
+  <div>
+    ### iOS  
+    - Swift   
+    - Xcode  
+    - Cocoapods  
+    - Carthage  
+    ### チーム共通  
+    - Git  
+    - GitHub  
+    - コードレビュー  
+    - Zeplin  
+    - Sketch  
+    ### ライブラリ  
+    - Realm  
+    - R.swift  
+    - SwiftBond  
+    - SwiftTask  
+  </div>
   </details>
-- 
+  <details>
+  <summary>
+  工夫していた点・悩んだ点
+  </summary>
+  <div>
+  </div>
+  </details>
+  </div>
+  </details>
 
-  #### 使った技術
 - 
   </div>
 </details>
