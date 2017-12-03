@@ -13,12 +13,20 @@
 
 # PersonalHistory
 <details> 
-  <summary><a href="https://corp.moneyforward.com/aboutus/"> 株式会社マネーフォワード</a> (2015/12 〜 在籍)</summary>
-<div>
-### [MFクラウド経費](https://itunes.apple.com/us/app/apple-store/id1062808085?mt=8)のiOSアプリ開発を担当
-#### 使った技術
-   * 
-</div>
+  <summary>
+    <a href="https://corp.moneyforward.com/aboutus/"> 株式会社マネーフォワード</a> (2015/12 〜 在籍)
+  </summary>
+  <div>
+<details>
+
+  [MFクラウド経費](https://itunes.apple.com/us/app/apple-store/id1062808085?mt=8)のiOSアプリ開発を担当
+
+</details>
+- 
+
+  #### 使った技術
+- 
+  </div>
 </details>
 
 
