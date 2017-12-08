@@ -422,6 +422,14 @@
 - iOSの勉強会で年に15くらい登壇している
   * よく行く [Swift愛好会](https://love-swift.connpass.com/)
   * ちょっと大きめのカンファレンス [iOSDC2017](https://iosdc.jp/2017/node/1364)
+    * 他にも応募したやつ
+      - [Atomic Designはいいぞ](https://iosdc.jp/2017/node/1440)
+      - [詳解Objective-C](https://iosdc.jp/2017/node/1364)
+      - [QuartzCodeで簡単に高度なアニメーションを作](https://iosdc.jp/2017/node/1415)
+      - [マッチョにUnityちゃんのアニメーションをつけた話](https://iosdc.jp/2017/node/1418)
+      - [xcodeproj.pbxprojを操作する](https://iosdc.jp/2017/node/1456)
+      - [コードを作るプログラムを作るお](https://iosdc.jp/2017/node/150)
+      - [mitmproxy でサーバーとの通信を覗いたり改ざんしてみよう](https://iosdc.jp/2017/node/156)
   * たまに勉強会でもメンターをやっている
   * 主にiOS・Swiftの勉強会
 
