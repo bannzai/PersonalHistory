@@ -363,6 +363,11 @@
     * メンバーの意見を最後まで耳を傾ける
     * デザインについても、サーバーサイドについてもキャッチアップする
       * お互い事情を把握しながら進めていきたかった
+      
+- iOSアプリのフロントエンドエンジニアをやっていてデザイナーとのコミュニケーションの壁の課題解決で積極的に挑戦していきました
+  * https://www.wantedly.com/companies/moneyforward/post_articles/106133
+  * https://moneyforward.com/engineers_blog/2018/01/24/
+  * https://moneyforward.com/engineers_blog/2018/01/25/
 
 ## その他
 - wantedly記事にいくつか掲載してもらいました
