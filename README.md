@@ -296,7 +296,7 @@
   </details>
   <details>
   <summary>
-  <a href="https://itunes.apple.com/jp/app/%E3%81%97%E3%82%89%E3%81%9F%E3%81%BE-%E4%BA%BA%E7%94%9F%E3%82%92%E6%A5%BD%E3%81%97%E3%82%80%E3%81%8A%E3%81%A4%E3%82%8A%E8%B2%AF%E9%87%91%E3%82%A2%E3%83%97%E3%83%AA/id1274834174?mt=8">しらたま</a>立ち上げ (2017/3 〜 在籍)
+  <a href="https://itunes.apple.com/jp/app/%E3%81%97%E3%82%89%E3%81%9F%E3%81%BE-%E4%BA%BA%E7%94%9F%E3%82%92%E6%A5%BD%E3%81%97%E3%82%80%E3%81%8A%E3%81%A4%E3%82%8A%E8%B2%AF%E9%87%91%E3%82%A2%E3%83%97%E3%83%AA/id1274834174?mt=8">しらたま</a>立ち上げ (2017/03 〜 2018/03)
   </summary>
   <div>
 
@@ -378,6 +378,23 @@
   </details>
   </div>
 </details>
+
+<details> 
+  <summary>
+    <a href="https://asobica.co.jp/"> Asobica, Inc</a> (2018/03 〜 )
+  </summary>
+  <div>
+  <details>
+  <summary>
+    <a href="https://fe-ver.jp/"> Fever </a> (2018/03 〜 )
+  </summary>
+  <div>
+  WIP
+  </div>
+  </details>
+  </div>
+</details>
+  
 
 ## 今後やりたいこと
 今までの経歴で一番楽しかったのが`しらたま`で、なぜかというと企画やサービスについて考えられる経験が楽しかったから
