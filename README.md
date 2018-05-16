@@ -169,7 +169,7 @@
 
 <details> 
   <summary>
-    <a href="https://corp.moneyforward.com/aboutus/"> 株式会社マネーフォワード</a> (2015/12 〜 在籍)
+    <a href="https://corp.moneyforward.com/aboutus/"> 株式会社マネーフォワード</a> (2015/12 〜 2018/03)
   </summary>
   <div>
   <details>
