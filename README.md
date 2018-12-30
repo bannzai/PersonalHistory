@@ -389,7 +389,174 @@
     <a href="https://fe-ver.jp/"> Fever </a> (2018/03 〜 )
   </summary>
   <div>
-  WIP
+
+## 概要
+
+- コミュニティ支援サービス
+- iOSアプリの開発
+- GolangでGraphQLのサーバー立ち上げる
+- Web Railsアプリの改修
+- ほぼリモートワークで働く
+
+## iOS
+- CollectionView
+  * 一部(設定画面)を除いてCollectionViewを前提とした作りにした
+  * [Conv](https://github.com/bannzai/Conv)を開発
+- Architecture
+  - RoutingはApplicationCoordinatorを採用
+  - Layered Architecture を採用して、主に画面の作り方を3パターンに分けることで誰が書いても似たようなコードになるようにした
+  - [kuri](https://github.com/bannzai/kuri)を使用してテスト含めて大幅に書くコードを削減
+  - Atomic Design(が、デザイナーがいない中やってしまったのでオーバーテクノロジーだったかもなと思っている)
+- Sourcery
+  - Stubの自動生成
+  - Mockの自動生成
+  - Lensの自動生成
+  - Initializerの自動生成
+  - [DifferenceIdentifier](https://github.com/bannzai/Conv#usage)の自動生成
+  - Equatableの自動生成
+- Bitrise
+  * UnitTest
+  * Deploy to DeployGate
+  * Deploy to TestFlight
+- Testちゃんと書く
+- ReSwift
+  * が、これは技術選定中に採用するのは辞めた
+- GraphQL クライアントサイド
+  * [Apollo](https://github.com/apollographql/apollo-tooling)を使う
+  * Apollo+Swiftを前提としたSchema設計・テスト設計・抽象化
+
+### iOS技術選定の振り返り
+
+いくつかpickupして書いていく
+
+#### CollectionView
+* CollectionViewにしておけば後からレイアウトどうとでもなるだろうと思った狙い
+* 特に失敗したと思っていない。概ね狙い通り
+
+#### GraphQL
+`GraphQL` が思った以上に良いものだった。
+- `introspection` の結果からクライアントサイドのコードを履いてくれる `Apollo` が良かった。楽
+- `Apollo` 自体にはまだもう少し改善がある気もするが今は特にめっちゃ困っているってことはない
+
+悩んだところとか今後やっていくこと書いてこ
+* エラーの設計で悩む　→ Errorを `kind` ごとにEnumにして型をつけることにした。switch 分で網羅的にエラー処理ができてクライアントもわかりやすくなった
+* 画像のUploadどうするかな → 画像のUploadだけ別パスを切ったentrypointを用意してそこに上げてから `Mutation` を実行するようにした。
+  * ちょっと重たい気もするから改善策が思いつけば実行していこう
+* ローカルキャッシュ
+  * Realm(RDB)でID使ってmappingするのは違う気がするんだよな。jsonで保存とかになる気もする
+* Apolloのデータ構造の抽象化が結構悩んだ
+  * Fragmentの設計等で回避するが、Fragmentを編集すると他のQueryにも影響する可能性を考慮するので多少めんどい
+  * 仕方ない気もしている
+
+#### Sourcery
+- メタプログラミング最高
+- テストデータ等を用意するにはもってこい
+- これのおかげでテスト書くときも気持ちが楽になった
+
+#### ReSwift
+- Mobile App において以下の特徴があるなと思って採用をやめた
+- State管理が`ViewController` 単位に縛られがち
+- 特によくある感じのタブ構成において、同じクラスの`ViewController`のインスタンスが複数存在するときもある。そういう場合のState管理が結局`UUID`を発行して管理するくらいしか思いつかない。そうした場合に結局ほとんどのStateに`UUID`で識別する機能をつけることになりそうだったのでやめた
+- データの流れを単方向にする目的もわざわざこれを採用しなくて良いなと思った
+
+## Go・GraphQL・GCP
+- インフラはGCP採用
+  * GAE・Flexible
+  * GCS
+  * Cloud SQL
+  * StackDriver Logger
+  * Google Container Registry
+- dev・stg・prod全てDockerで運用
+  - と言いつつ普段の開発はローカルでしがち
+  - multistage build で docker image すごく軽くなるからGoとの相性いいなと思った
+- APIの指針はGraphQLを採用
+- 認証はJWTを採用
+  - 段々好きになってきた
+  - これは業務委託の人にお願いして先行して開発はしてもらったが仕様は理解した
+- CIはCircleCIを採用
+  * Test
+  * Deploy
+- Goの構成としては `Layered Architecture` にした
+  * `interface` を通して抽象化した
+  * `DI` をすることで `Stub・Spy` と入れ替えやすくテストも書きやすいように
+  * テストめっちゃ書いた
+  * WebのRailsAppとのDBのスキーマのズレをなくすために[sqlboiler](https://github.com/volatiletech/sqlboiler)を採用した
+- Clientサイドとして[OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator)を使っている
+  * 更新系の処理(Mutation)はRailsのActiveRecordのvalidation等使えた方が便利なので、更新系の処理はGraphQL→Rails(OpenAPI)経由で実行することにした
+
+### Go・GraphQL・GCPの技術選定の振り返り
+
+#### GraphQL
+- 採用したライブラリは[graphql-go](https://github.com/graphql-go/graphql) → [gqlgen](https://github.com/99designs/gqlgen)にした
+  * やっぱり型がある方がいいなと思ってほとんどできている状態から `gqlgen` 移行
+  * 悩みは減ったが、nullをポインタで表現しちゃっているのが好きじゃない
+  * あとたまにバグっている(graphql-goだとどうとか知らないが)
+  * ドキュメントも結構変わるので使う時は注意が必要そうな気配
+- APIとしての実装の仕様を定めているのではなく、インタフェースとして定まっている。って点がとても助かった
+- データの更新に関してはRailsと(というかDB)仕様を合わせたい。そのためにActiveRecordの機能を利用するために`GraphQL`を通してリクエストされたものから別のAPIを叩くことに抵抗なく解釈できたのが良かった
+- [GraphQL Playground](https://github.com/prisma/graphql-playground)のUIかっこいい
+- GraphQL PlaygroundでインタラクティブにQueryの確認できるの個人的には好き。確認もしやすい
+  - が、これはサーバーサイド・クライアントサイド一人で実装した場合だからチーム開発の時はどうなんだろうな。って疑問がある
+
+#### OpenAPI
+- OpenAPIのspecからクライアントサイドでコールするコードが吐かれるの最高
+
+#### テストめっちゃ書いた
+- GolangのASTから `Stub・Spy` を自動生成するコードを書いたが、これは失敗だった気がする
+- 素直にGoMockとか使っておけば良かった。。。
+- まとめて `hogehoge_generated_test.go`みたいなファイルが吐かれて`hogehogeMock`という `Stub・Spy` パターンを作ったが、ユースケースに合わせて挙動を変えられる設計にしていなかったため。Aのテストでは使えるけど、Bのテストでは使えないってことが発生してしまった。
+
+## Rails
+- Webアプリの改修もたまにやった
+  - これAPI作るときに設計できないな。って部分は問題点を洗い出して修正したりした
+- OpenAPI
+  * ActiveRecordのvalidation等の機能に頼りたいためにAPIを作った
+  * 更新系の処理に主に利用したかった
+  * [Grape-Swagger](https://github.com/ruby-grape/grape-swagger)というライブラリで開発
+
+### Railsの技術選定の振り返り
+#### Grape
+- GrapeというかRuby全体に言えることだが、ドキュメント読まないと漠然とした挙動も見えないのが少し大変だった
+- Grape自体は簡単にかけて次作るときはもっとシュシュっと作れる感はあるなと思った
+
+#### OpenAPI
+- OpenAPIのUI部分は自動生成されるのは助かる
+- 反面履歴とか残ってくれると嬉しいのになあ。とGraphQL Playgroundと比較しちゃっての感想を持ったり
+
+  </div>
+  </details>
+  </div>
+</details>
+
+<details> 
+  <summary>
+    <a href="https://www.otobank.co.jp/"> OTOBANK</a> (2018/後半 〜 )
+  </summary>
+  <div>
+  <details>
+  <summary>
+    <a href="https://audiobook.jp/"> audiobook.jp </a> 
+  </summary>
+  <div>
+
+## 概要
+
+- 耳で聴いて読書するサービス
+- 副業で携わる
+- ReactNativeでiOS・Androidの開発
+
+## Mobile Application
+
+- ReactNativeでiOS・Androidの開発
+- TypeScriptでよかった
+- 知らない・使ったことない外部サービスとかを使っていて面白い
+  * Sentry
+  * Buddybuild
+  * Microsoft AppCenter
+
+### 振り返り
+振り返るほどいない・WIP
+
   </div>
   </details>
   </div>
@@ -411,6 +578,10 @@
 
 ### 働く人
  * 自分よりも優秀であるのはもちろん、こうなりたい、ここを盗みたいって思える人と働きたい
+
+### 文化
+ * オープンな文化がいいですね
+ * やったことや考えが何らかの形で残っている場所
 
 ### サービスに興味が持てるかどうか
  * 必ずしも自分がユーザーである必要もないと思っている
@@ -444,24 +615,23 @@
 
 
 ## 業務以外で個人的にやってきたことや経歴
-- iOSの勉強会で年に15くらい登壇している
+- [Designer X Engineer Lovers（DXEL](https://engineers-x-designers.connpass.com/)の運営
+
+- iOSの勉強会で年に10~20くらい登壇している
   * よく行く [Swift愛好会](https://love-swift.connpass.com/)
-  * ちょっと大きめのカンファレンス [iOSDC2017](https://iosdc.jp/2017/node/1364)
-    * 他にも応募したやつ
-      - [Atomic Designはいいぞ](https://iosdc.jp/2017/node/1440)
-      - [詳解Objective-C](https://iosdc.jp/2017/node/1364)
-      - [QuartzCodeで簡単に高度なアニメーションを作](https://iosdc.jp/2017/node/1415)
-      - [マッチョにUnityちゃんのアニメーションをつけた話](https://iosdc.jp/2017/node/1418)
-      - [xcodeproj.pbxprojを操作する](https://iosdc.jp/2017/node/1456)
-      - [コードを作るプログラムを作るお](https://iosdc.jp/2017/node/150)
-      - [mitmproxy でサーバーとの通信を覗いたり改ざんしてみよう](https://iosdc.jp/2017/node/156)
+  * ちょっと大きめのカンファレンス 
+    * [iOSDC2017](https://iosdc.jp/2017/node/1364)
+    * [iOSDC2018](https://fortee.jp/iosdc-japan-2018/proposal/9aada1a8-029a-4b66-aa68-ffe53161adf5)
+    * 2年連続でなぜかObjective-Cのネタで登壇している
   * たまに勉強会でもメンターをやっている
   * 主にiOS・Swiftの勉強会
 
 - スター乞食というあだ名がついた
   * 自作OSS作るの好き。
+  * Blog
     * https://github.com/bannzai
     * https://qiita.com/bannzai
+    * https://bannzai.hatenadiary.jp/about
   * 勉強会で発表する内容はOSS作って公開してスターください
   * [死を願われるまでになった](https://anond.hatelabo.jp/20170830165611)
 
