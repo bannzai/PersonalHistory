@@ -611,24 +611,23 @@
 
 
 ## 業務以外で個人的にやってきたことや経歴
-- iOSの勉強会で年に15くらい登壇している
+- [Designer X Engineer Lovers（DXEL](https://engineers-x-designers.connpass.com/)の運営
+
+- iOSの勉強会で年に10~20くらい登壇している
   * よく行く [Swift愛好会](https://love-swift.connpass.com/)
-  * ちょっと大きめのカンファレンス [iOSDC2017](https://iosdc.jp/2017/node/1364)
-    * 他にも応募したやつ
-      - [Atomic Designはいいぞ](https://iosdc.jp/2017/node/1440)
-      - [詳解Objective-C](https://iosdc.jp/2017/node/1364)
-      - [QuartzCodeで簡単に高度なアニメーションを作](https://iosdc.jp/2017/node/1415)
-      - [マッチョにUnityちゃんのアニメーションをつけた話](https://iosdc.jp/2017/node/1418)
-      - [xcodeproj.pbxprojを操作する](https://iosdc.jp/2017/node/1456)
-      - [コードを作るプログラムを作るお](https://iosdc.jp/2017/node/150)
-      - [mitmproxy でサーバーとの通信を覗いたり改ざんしてみよう](https://iosdc.jp/2017/node/156)
+  * ちょっと大きめのカンファレンス 
+    * [iOSDC2017](https://iosdc.jp/2017/node/1364)
+    * [iOSDC2018](https://fortee.jp/iosdc-japan-2018/proposal/9aada1a8-029a-4b66-aa68-ffe53161adf5)
+    * 2年連続でなぜかObjective-Cのネタで登壇している
   * たまに勉強会でもメンターをやっている
   * 主にiOS・Swiftの勉強会
 
 - スター乞食というあだ名がついた
   * 自作OSS作るの好き。
+  * Blog
     * https://github.com/bannzai
     * https://qiita.com/bannzai
+    * https://bannzai.hatenadiary.jp/about
   * 勉強会で発表する内容はOSS作って公開してスターください
   * [死を願われるまでになった](https://anond.hatelabo.jp/20170830165611)
 
