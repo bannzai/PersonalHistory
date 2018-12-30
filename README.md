@@ -389,11 +389,140 @@
     <a href="https://fe-ver.jp/"> Fever </a> (2018/03 〜 )
   </summary>
   <div>
-  WIP
+
+## 概要
+
+- コミュニティ支援サービス
+- iOSアプリの開発
+- GolangでGraphQLのサーバー立ち上げる
+- Web Railsアプリの改修
+- ほぼリモートワークで働く
+
+## iOS
+- CollectionView
+  * 一部(設定画面)を除いてCollectionViewを前提とした作りにした
+  * [Conv](https://github.com/bannzai/Conv)を開発
+- Architecture
+  - RoutingはApplicationCoordinatorを採用
+  - Layered Architecture を採用して、主に画面の作り方を3パターンに分けることで誰が書いても似たようなコードになるようにした
+  - [kuri](https://github.com/bannzai/kuri)を使用してテスト含めて大幅に書くコードを削減
+  - Atomic Design(が、デザイナーがいない中やってしまったのでオーバーテクノロジーだったかもなと思っている)
+- Sourcery
+  - Stubの自動生成
+  - Mockの自動生成
+  - Lensの自動生成
+  - Initializerの自動生成
+  - [DifferenceIdentifier](https://github.com/bannzai/Conv#usage)の自動生成
+  - Equatableの自動生成
+- Bitrise
+  * UnitTest
+  * Deploy to DeployGate
+  * Deploy to TestFlight
+- Testちゃんと書く
+- ReSwift
+  * が、これは技術選定中に採用するのは辞めた
+- GraphQL クライアントサイド
+  * [Apollo](https://github.com/apollographql/apollo-tooling)を使う
+  * Apollo+Swiftを前提としたSchema設計・テスト設計・抽象化
+
+### iOS技術選定の振り返り
+
+いくつかpickupして書いていく
+
+#### CollectionView
+* CollectionViewにしておけば後からレイアウトどうとでもなるだろうと思った狙い
+* 特に失敗したと思っていない。概ね狙い通り
+
+#### GraphQL
+`GraphQL` が思った以上に良いものだった。
+- `introspection` の結果からクライアントサイドのコードを履いてくれる `Apollo` が良かった。楽
+- `Apollo` 自体にはまだもう少し改善がある気もするが今は特にめっちゃ困っているってことはない
+
+悩んだところとか今後やっていくこと書いてこ
+* エラーの設計で悩む　→ Errorを `kind` ごとにEnumにして型をつけることにした。switch 分で網羅的にエラー処理ができてクライアントもわかりやすくなった
+* 画像のUploadどうするかな → 画像のUploadだけ別パスを切ったentrypointを用意してそこに上げてから `Mutation` を実行するようにした。
+  * ちょっと重たい気もするから改善策が思いつけば実行していこう
+* ローカルキャッシュ
+  * Realm(RDB)でID使ってmappingするのは違う気がするんだよな。jsonで保存とかになる気もする
+* Apolloのデータ構造の抽象化が結構悩んだ
+  * Fragmentの設計等で回避するが、Fragmentを編集すると他のQueryにも影響する可能性を考慮するので多少めんどい
+  * 仕方ない気もしている
+
+#### Sourcery
+- メタプログラミング最高
+- テストデータ等を用意するにはもってこい
+- これのおかげでテスト書くときも気持ちが楽になった
+
+#### ReSwift
+- Mobile App において以下の特徴があるなと思って採用をやめた
+- State管理が`ViewController` 単位に縛られがち
+- 特によくある感じのタブ構成において、同じクラスの`ViewController`のインスタンスが複数存在するときもある。そういう場合のState管理が結局`UUID`を発行して管理するくらいしか思いつかない。そうした場合に結局ほとんどのStateに`UUID`で識別する機能をつけることになりそうだったのでやめた
+- データの流れを単方向にする目的もわざわざこれを採用しなくて良いなと思った
+
+## Go・GraphQL・GCP
+- インフラはGCP採用
+  * GAE・Flexible
+  * GCS
+  * Cloud SQL
+  * StackDriver Logger
+  * Google Container Registry
+- dev・stg・prod全てDockerで運用
+  - と言いつつ普段の開発はローカルでしがち
+  - multistage build で docker image すごく軽くなるからGoとの相性いいなと思った
+- APIの指針はGraphQLを採用
+- 認証はJWTを採用
+  - 段々好きになってきた
+  - これは業務委託の人にお願いして先行して開発はしてもらったが仕様は理解した
+- CIはCircleCIを採用
+  * Test
+  * Deploy
+- Goの構成としては `Layered Architecture` にした
+  * `interface` を通して抽象化した
+  * `DI` をすることで `Stub・Spy` と入れ替えやすくテストも書きやすいように
+  * テストめっちゃ書いた
+  * WebのRailsAppとのDBのスキーマのズレをなくすために[sqlboiler](https://github.com/volatiletech/sqlboiler)を採用した
+- Clientサイドとして[OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator)を使っている
+  * 更新系の処理(Mutation)はRailsのActiveRecordのvalidation等使えた方が便利なので、更新系の処理はGraphQL→Rails(OpenAPI)経由で実行することにした
+
+### Go・GraphQL・GCPの技術選定の振り返り
+
+#### GraphQL
+- APIとしての実装の仕様を定めているのではなく、インタフェースとして定まっている。って点がとても助かった
+- データの更新に関してはRailsと(というかDB)仕様を合わせたい。そのためにActiveRecordの機能を利用するために`GraphQL`を通してリクエストされたものから別のAPIを叩くことに抵抗なく解釈できたのが良かった
+- [GraphQL Playground](https://github.com/prisma/graphql-playground)のUIかっこいい
+- GraphQL PlaygroundでインタラクティブにQueryの確認できるの個人的には好き。確認もしやすい
+  - が、これはサーバーサイド・クライアントサイド一人で実装した場合だからチーム開発の時はどうなんだろうな。って疑問がある
+
+#### OpenAPI
+- OpenAPIのspecからクライアントサイドでコールするコードが吐かれるの最高
+
+#### テストめっちゃ書いた
+- GolangのASTから `Stub・Spy` を自動生成するコードを書いたが、これは失敗だった気がする
+- 素直にGoMockとか使っておけば良かった。。。
+- まとめて `hogehoge_generated_test.go`みたいなファイルが吐かれて`hogehogeMock`という `Stub・Spy` パターンを作ったが、ユースケースに合わせて挙動を変えられる設計にしていなかったため。Aのテストでは使えるけど、Bのテストでは使えないってことが発生してしまった。
+
+## Rails
+- Webアプリの改修もたまにやった
+  - これAPI作るときに設計できないな。って部分は問題点を洗い出して修正したりした
+- OpenAPI
+  * ActiveRecordのvalidation等の機能に頼りたいためにAPIを作った
+  * 更新系の処理に主に利用したかった
+  * [Grape-Swagger](https://github.com/ruby-grape/grape-swagger)というライブラリで開発
+
+### Railsの技術選定の振り返り
+#### Grape
+- GrapeというかRuby全体に言えることだが、ドキュメント読まないと漠然とした挙動も見えないのが少し大変だった
+- Grape自体は簡単にかけて次作るときはもっとシュシュっと作れる感はあるなと思った
+
+#### OpenAPI
+- OpenAPIのUI部分は自動生成されるのは助かる
+- 反面履歴とか残ってくれると嬉しいのになあ。とGraphQL Playgroundと比較しちゃっての感想を持ったり
+
   </div>
   </details>
   </div>
 </details>
+
   
 
 ## 今後やりたいこと
