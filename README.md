@@ -523,6 +523,36 @@
   </div>
 </details>
 
+<details> 
+  <summary>
+    <a href="https://www.otobank.co.jp/"> OTOBANK</a> (2018/後半 〜 )
+  </summary>
+  <div>
+  <details>
+  <summary>
+    <a href="https://audiobook.jp/"> audiobook.jp </a> 
+  </summary>
+  <div>
+
+## 概要
+
+- 耳で聴いて読書するサービス
+- 副業で携わる
+- ReactNativeでiOS・Androidの開発
+
+## Mobile Application
+
+- ReactNativeでiOS・Androidの開発
+- TypeScriptでよかった
+- 知らない・使ったことない外部サービスとかを使っていて面白い
+  * Sentry
+  * Buddybuild
+  * Microsoft AppCenter
+
+  </div>
+  </details>
+  </div>
+</details>
   
 
 ## 今後やりたいこと
