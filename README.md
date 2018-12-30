@@ -487,6 +487,11 @@
 ### Go・GraphQL・GCPの技術選定の振り返り
 
 #### GraphQL
+- 採用したライブラリは[graphql-go](https://github.com/graphql-go/graphql) → [gqlgen](https://github.com/99designs/gqlgen)にした
+  * やっぱり型がある方がいいなと思ってほとんどできている状態から `gqlgen` 移行
+  * 悩みは減ったが、nullをポインタで表現しちゃっているのが好きじゃない
+  * あとたまにバグっている(graphql-goだとどうとか知らないが)
+  * ドキュメントも結構変わるので使う時は注意が必要そうな気配
 - APIとしての実装の仕様を定めているのではなく、インタフェースとして定まっている。って点がとても助かった
 - データの更新に関してはRailsと(というかDB)仕様を合わせたい。そのためにActiveRecordの機能を利用するために`GraphQL`を通してリクエストされたものから別のAPIを叩くことに抵抗なく解釈できたのが良かった
 - [GraphQL Playground](https://github.com/prisma/graphql-playground)のUIかっこいい
