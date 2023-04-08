@@ -778,8 +778,16 @@ DeNAという組織とチームに関しての2点思うことがあった。
     * https://github.com/bannzai
     * https://qiita.com/bannzai
     * https://bannzai.hatenadiary.jp/about
+    * https://zenn.dev/bannzai
   * 勉強会で発表する内容はOSS作って公開してスターください
   * [死を願われるまでになった](https://anond.hatelabo.jp/20170830165611)
+  
+- 個人開発
+  * [Pilll](https://pilllapp.studio.site/)
+  * [#100日後に](https://twitter.com/_bannzai_/status/1554631238119350272?s=20)
+  * [DigitalDetox: デジタルデトックス](https://apps.apple.com/jp/app/digitaldetox-%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%87%E3%83%88%E3%83%83%E3%82%AF%E3%82%B9/id1663997320)
+  * [NotificationHub](https://apps.apple.com/jp/app/notificationhub/id1484099869)
+
 
 - ハッカソン
   * MAのハッカソンで企業賞
@@ -787,6 +795,7 @@ DeNAという組織とチームに関しての2点思うことがあった。
   * [try! Swift Tokyo 2017 Hackathon Firebase賞受賞](http://dev.classmethod.jp/event/try-swift-tokyo-2017-hackathon/)
   * [SPAJAMハッカソン2020で本選最優秀賞獲得](https://spajam.jp/final-result)
     * blog: https://bannzai.hatenadiary.jp/entry/2020/11/10/004028
+
 
 ## おまけ
 - blog: https://bannzai.hatenadiary.jp/  
