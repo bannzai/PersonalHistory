@@ -8,6 +8,7 @@
 |GitHub|[bannzai](https://github.com/bannzai)|
 |SpeakerDeck|[bannzai](https://speakerdeck.com/bannzai/)|
 |Qiita|[bannzai](http://qiita.com/bannzai)|
+|Zenn|[bannzai](http://zenn.dev/bannzai)|
 |Twitter|[@\_bannzai\_](https://twitter.com/_bannzai_)| 
 |Facebook|[yudai.owata.hirose](https://www.facebook.com/yudai.owata.hirose)
 |Wantedly|[廣瀬 雄大](https://www.wantedly.com/users/4069053)
@@ -787,6 +788,10 @@ DeNAという組織とチームに関しての2点思うことがあった。
   * [#100日後に](https://twitter.com/_bannzai_/status/1554631238119350272?s=20)
   * [DigitalDetox: デジタルデトックス](https://apps.apple.com/jp/app/digitaldetox-%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%87%E3%83%88%E3%83%83%E3%82%AF%E3%82%B9/id1663997320)
   * [NotificationHub](https://apps.apple.com/jp/app/notificationhub/id1484099869)
+  * [Focus](https://apps.apple.com/jp/app/id1663997320)
+  * その他のiOSアプリ: https://apps.apple.com/jp/developer/yudai-hirose/id1062610569
+  * 解約.com: https://zenn.dev/bannzai/articles/1eda9a5158b3d9
+  * 
 
 
 - ハッカソン
