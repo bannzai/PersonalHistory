@@ -736,7 +736,7 @@ DeNAという組織とチームに関しての2点思うことがあった。
 <details> 
 
   <summary>
-    <a href="https://stack.inc/"> Stack Inc</a> (2020/4 〜 )
+    <a href="https://stack.inc/"> Stack Inc</a> (2020/4 〜 2021/7)
   </summary>
   <div>
   <details>
@@ -746,6 +746,7 @@ DeNAという組織とチームに関しての2点思うことがあった。
   <div>
 
 ## 概要
+- Shopify アプリの開発
 - 色々と経験させてもらいました
 - 作業量が多い順で、 SwiftUI, Go(GraphQL, Shopify API) & GCP(GAE→Cloud Run, Firestore(Datastore mode)... etc), React, Jetpack Compose,
 - CI/CD環境についても整備してました
@@ -759,10 +760,60 @@ DeNAという組織とチームに関しての2点思うことがあった。
 
 一方、この時期に子供の出産や引っ越しなどの環境の変化が重なりイマイチパフォーマンスが出づらい状態でした。逆にいうとStack社みたいに創業メンバーがやりやすいからなんとか成り立っていたというラッキーな面があったなと感じています。
 
-ということもありここからしばらく「子供が小さいうちは育児に専念するか」と思い思い切ってクライアントワークを辞めることにしました。 [この記事](https://bannzai.hatenadiary.jp/entry/2023/07/20/111551)にその時の近況報告が書かれています
+ということもありここからしばらく「子供が小さいうちは育児に専念するか」と思い思い切ってクライアントワークを辞めることにしました(2021/7)。 [この記事](https://bannzai.hatenadiary.jp/entry/2023/07/20/111551)にその時の近況報告が書かれています
 
   </div>
   </details>
+  </div>
+</details>
+
+<details> 
+  <summary>
+    postalk株式会社 (2023/3 〜 2023/8)
+  </summary>
+  <div>
+
+## 概要
+- Flutter アプリの技術顧問
+- 育児でクライアントワークを休止していた期間の短期の関わり
+
+  </div>
+</details>
+
+<details> 
+  <summary>
+    dot mura 株式会社 (2024/3 〜 2024/5)
+  </summary>
+  <div>
+
+## 概要
+- Flutter アプリ開発
+
+  </div>
+</details>
+
+<details> 
+  <summary>
+    <a href="https://stack.inc/"> 株式会社Stack (旧 Appify)</a> (2025/7 〜 2026/2)
+  </summary>
+  <div>
+
+## 概要
+- 2020 〜 2021 年に携わった Appify (現 Stack) に再び参加
+- iOS アプリとサーバー・インフラの開発
+
+  </div>
+</details>
+
+<details> 
+  <summary>
+    株式会社すきだよ (2025/9 〜 )
+  </summary>
+  <div>
+
+## 概要
+- Flutter と Firebase を使ったバックエンド開発
+
   </div>
 </details>
 
